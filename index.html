@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MANAS BUNGALOW - KELVE ROAD EAST</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Montserrat Font -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Montserrat', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      min-height: 100vh;
+      transition: background-image 1s ease-in-out;
+    }
+    .overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(30,45,60,0.55);
+      z-index: 0;
+    }
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      width: 100%;
+      margin: 40px auto;
+      background: rgba(255, 255, 255, 0.518);
+      backdrop-filter: blur(5px);
+      padding: 34px 32px 24px 32px;
+      border-radius: 16px;
+      box-shadow: 0 8px 36px 0 rgba(0,0,0,0.20);
+    }
+    @media (max-width: 900px) {
+      .container {
+        max-width: 95%;
+        padding: 24px 12px 18px 12px;
+      }
+    }
+    @media (max-width: 650px) {
+      .container {
+        max-width: 100vw;
+        padding: 14px 3vw 10px 3vw;
+        border-radius: 8px;
+        min-width: unset;
+      }
+      h2 {
+        font-size: 1.2em;
+      }
+      .section-title {
+        font-size: 1em;
+      }
+      .form-input, .form-select, textarea {
+        font-size: 1em;
+        padding-left: 32px;
+      }
+      .icon-input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 38px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6e7d97;
+  font-size: 1.2em;
+  z-index: 3;
+  pointer-events: none;
+}
+
+      .star-rating label {
+        font-size: 1.1em;
+      }
+      .progress-bar-container {
+        height: 9px;
+      }
+      .submit-btn {
+        font-size: 1em;
+        padding: 10px;
+      }
+      .action-row {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+    @media (max-width: 420px) {
+      .container {
+        padding: 6vw 1vw 7vw 1vw;
+        font-size: 0.98em;
+      }
+      h2 {
+        font-size: 1.01em;
+        padding: 5px 0 13px 0;
+      }
+      .section-title {
+        font-size: 0.97em;
+        margin-bottom: 7px;
+      }
+      .progress-bar-container {
+        margin-bottom: 14px;
+        height: 8px;
+      }
+      .form-input, .form-select, textarea {
+  padding-left: 40px;
+  padding-bottom: 40px; /* Keep in sync with .icon-input width */
+}
+
+    }
+    .form-section {
+      display: none;
+      animation: fadeIn .7s;
+    }
+    .form-section.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity:1;}
+    }
+    h2 {
+      text-align: center;
+      color: #2b394e;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      font-size: 2.1rem;
+    }
+    .section-title {
+      font-size: 1.19rem;
+      color: #356799;
+      margin: 22px 0 12px 0;
+      font-weight: 600;
+      letter-spacing: .04rem;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+    }
+    .section-title i {
+      margin-right: 7px;
+      color: #40609c;
+      font-size: 1.05em;
+    }
+    .form-group {
+      position: relative;
+      margin-bottom: 23px;
+    }
+    .icon-input {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #6e7d97;
+      font-size: 1.2em;
+      z-index: 3;
+    }
+    .form-input, .form-select, textarea {
+      font-family: inherit;
+      width: 745px;
+      padding: 11px 13px 11px 38px;
+      border: 1.5px solid #b4bac7;
+      border-radius: 6px;
+      background: #ebeef3;
+      margin-top: 0;
+      font-size: 1.07em;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+      box-shadow: 0 1px 8px 0 rgba(55,61,85,0.04);
+    }
+    .form-input:focus, .form-select:focus, textarea:focus {
+      border-color: #4477bb;
+      background: #f8faff;
+      box-shadow: 0 2px 8px rgba(68,119,187,0.06),
+                  0 0 0 2px #d1e5ff;
+    }
+    .form-input.error, .form-select.error, textarea.error {
+      border-color: #ff5d5d;
+      background: #ffeaea;
+    }
+    label.floating-label {
+      position: absolute;
+      left: 38px;
+      top: 13px;
+      font-size: 1em;
+      color: #9ba6bf;
+      pointer-events: none;
+      background: transparent;
+      transition: all 0.2s;
+      padding: 0 4px;
+    }
+    .form-input:focus + .floating-label,
+    .form-input:not(:placeholder-shown) + .floating-label,
+    textarea:focus + .floating-label,
+    textarea:not(:placeholder-shown) + .floating-label {
+      top: -8px;
+      font-size: 0.93em;
+      color: #4477bb;
+      font-weight: 600;
+      background: #fff;
+      border-radius: 2px;
+    }
+    .form-select + .floating-label {
+      top: -10px;
+      left: 8px;
+      font-size: 0.89em;
+      color: #4477bb;
+      font-weight: 600;
+      background: #fff;
+      border-radius: 2px;
+      padding: 0 4px;
+      transform: none !important;
+    }
+    .error-msg {
+      color: #ff5555;
+      font-size: 0.97em;
+      margin-top: 2px;
+      display: block;
+      min-height: 22px;
+      font-weight: 500;
+    }
+    textarea {
+      padding: 13px 13px 13px 38px;
+      min-height: 52px;
+      resize: vertical;
+    }
+    .star-rating {
+      display: flex;
+      flex-direction: row-reverse;
+      font-size: 1.3em;
+      justify-content: flex-start;
+      margin-top: 5px;
+    }
+    .star-rating input[type="radio"] {
+      display: none;
+    }
+    .star-rating label {
+      color: #b4bac7;
+      cursor: pointer;
+      margin: 0 3px;
+      transition: color 0.15s;
+    }
+    .star-rating input[type="radio"]:checked ~ label,
+    .star-rating label:hover,
+    .star-rating label:hover ~ label {
+      color: #ffd046;
+    }
+    .star-rating input[type="radio"]:checked ~ label {
+      color: #ffa500;
+    }
+    .action-row {
+      margin-top: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .progress-bar-container {
+      margin-bottom: 25px;
+      height: 14px;
+      background: #e6ecf6;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(80,120,200,.04);
+    }
+    .progress-bar {
+      background: linear-gradient(90deg,#4477bb 0%, #72ceef 100%);
+      height: 100%;
+      width: 0;
+      transition: width 0.35s;
+    }
+    .submit-btn {
+      width: 100%;
+      background: #4477bb;
+      color: #fff;
+      border: none;
+      padding: 14px;
+      border-radius: 6px;
+      font-size: 1.12em;
+      font-weight: 600;
+      letter-spacing: 1px;
+      cursor: pointer;
+      margin-top: 18px;
+      box-shadow: 0 4px 12px rgba(48,100,180,.10);
+      transition: background 0.19s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      outline: none;
+    }
+    .submit-btn:hover:not([disabled]) {
+      background: #346097;
+    }
+    .spinner {
+      border: 3px solid #cfe3fb;
+      border-top: 3px solid #4477bb;
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      animation: spin 1s linear infinite;
+      margin-right: 10px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-top: -2px;
+    }
+    @keyframes spin {
+      0% {transform: rotate(0deg);}
+      100% {transform: rotate(360deg);}
+    }
+    .confirmation {
+      text-align: center;
+      color: #299e56;
+      font-size: 1.3em;
+      margin: 55px 0 37px 0;
+      font-weight: 600;
+      animation: fadeIn 1s;
+      min-height: 70px;
+    }
+    .form-group
+    {
+      display: flex;
+      margin-top: 40px;
+    }
+    ::selection {
+      background: #e8f2ff;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+  <div class="container">
+    <h2><i class="fa-solid fa-house"></i> MANAS BUNGALOW - KELVE ROAD EAST</h2>
+    <div class="progress-bar-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <form id="feedbackForm" action="https://formspree.io/f/mblklydn" method="POST" novalidate autocomplete="off">
+      <!-- Section 1: Guest Info -->
+      <div class="form-section active" data-step="1">
+        <div class="section-title"><i class="fa-solid fa-user"></i> Guest Info</div>
+        <div class="form-group">
+          <i class="fa-solid fa-user icon-input"></i>
+          <input class="form-input" name="name" id="name" type="text" required placeholder=" " autocomplete="off">
+          <label class="floating-label" for="name">Name *</label>
+          <span class="error-msg"></span>
+        </div>
+        <div class="form-group">
+          <i class="fa-solid fa-envelope icon-input"></i>
+          <input class="form-input" name="email" id="email" type="email" required placeholder=" ">
+          <label class="floating-label" for="email">Email *</label>
+          <span class="error-msg"></span>
+        </div>
+        <div class="form-group">
+          <i class="fa-solid fa-phone icon-input"></i>
+          <input class="form-input" name="phone" id="phone" type="text" placeholder=" ">
+          <label class="floating-label" for="phone">Phone Number</label>
+          <span class="error-msg"></span>
+        </div>
+        <div class="form-group">
+          <i class="fa-solid fa-calendar-days icon-input"></i>
+          <input class="form-input" name="stayDates" id="stayDates" type="date" required placeholder=" ">
+          <label class="floating-label" for="stayDates">Stay Dates *</label>
+          <span class="error-msg"></span>
+        </div>
+        <div class="form-group">
+          <i class="fa-solid fa-users icon-input"></i>
+          <input class="form-input" name="numGuests" id="numGuests" type="number" min="1" max="30" placeholder=" ">
+          <label class="floating-label" for="numGuests">Number of Guests</label>
+          <span class="error-msg"></span>
+        </div>
+        <div class="action-row">
+          <span></span>
+          <button class="submit-btn" type="button" onclick="nextSection()">Next <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+      <!-- Section 2: Booking Experience -->
+      <div class="form-section" data-step="2">
+        <div class="section-title"><i class="fa-regular fa-calendar-check"></i> Booking Experience</div>
+        <div class="form-group">
+          <i class="fa-solid fa-check-circle icon-input"></i>
+          <div class="star-rating" data-name="bookingProcess">
+            <input type="radio" id="starBooking5" name="bookingProcess" value="5" required>
+            <label for="starBooking5"><i class="fa-solid fa-star"></i></label>
+            <input type="radio" id="starBooking4" name="bookingProcess" value="4">
+            <label for="starBooking4"><i class="fa-solid fa-star"></i></label>
+            <input type="radio" id="starBooking3" name="bookingProcess" value="3">
+            <label for="starBooking3"><i class="fa-solid fa-star"></i></label>
+            <input type="radio" id="starBooking2" name="bookingProcess" value="2">
+            <label for="starBooking2"><i class="fa-solid fa-star"></i></label>
+            <input type="radio" id="starBooking1" name="bookingProcess" value="1">
+            <label for="starBooking1"><i class="fa-solid fa-star"></i></label>
+          </div>
+          <span class="error-msg"></span>
+        </div>
+        <div class="form-group">
+          <span class="icon-input" style="top:21px;"><i class="fa-solid fa-comments"></i></span>
+          <div style="margin-left:28px;padding-top:3px;">
+            <label>Was communication prior to arrival helpful? *</label><br>
+            <input type="radio" name="preComm" value="Yes" required> Yes
+            <input type="radio" name="preComm" value="No"> No
+          </div>
+          <span class="error-msg"></span>
+        </div>
+        <div class="action-row">
+          <button class="submit-btn" type="button" onclick="prevSection()"><i class="fa-solid fa-arrow-left"></i> Back</button>
+          <button class="submit-btn" type="button" onclick="nextSection()">Next <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+      <!-- Section 3: Bungalow Experience -->
+      <div class="form-section" data-step="3">
+        <div class="section-title"><i class="fa-solid fa-mop"></i> Bungalow Experience</div>
+        <div class="form-group">
+          <i class="fa-solid fa-broom icon-input"></i>
+          <div class="star-rating" data-name="cleanliness">
+            <input type="radio" id="starClean5" name="cleanliness" value="5" required>
+            <label for="starClean5"><i class="fa-solid fa-star"></i></label>
+            <input type="radio" id="starClean4" name="cleanliness" value="4">
+            <label for="starClean4"><i class="fa-solid fa-star"></i></label>
+            <input type="radio" id="starClean3" name="cleanliness" value="3">
+            <label for="starClean3"><i class="fa-solid fa-star"></i></label>
+            <input type="radio" id="starClean2" name="cleanliness" value="2">
+            <label for="starClean2"><i class="fa-solid fa-star"></i></label>
+            <input type="radio" id="starClean1" name="cleanliness" value="1">
+            <label for="starClean1"><i class="fa-solid fa-star"></i></label>
+          </div>
+          <span class="error-msg"></span>
+        </div>
+        <div class="form-group">
+          <i class="fa-solid fa-bed icon-input"></i>
+          <div class="star-rating" data-name="comfort">
+            <input type="radio" id="starComfort5" name="comfort" value="5" required>
+            <label for="starComfort5"><i class="fa-solid fa-star"></i></label>
+            <input type="radio" id="starComfort4" name="comfort" value="4">
+            <label for="starComfort4"><i class="fa-solid fa-star"></i></label>
+            <input type="radio" id="starComfort3" name="comfort" value="3">
+            <label for="starComfort3"><i class="fa-solid fa-star"></i></label>
+            <input type="radio" id="starComfort2" name="comfort" value="2">
+            <label for="starComfort2"><i class="fa-solid fa-star"></i></label>
+            <input type="radio" id="starComfort1" name="comfort" value="1">
+            <label for="starComfort1"><i class="fa-solid fa-star"></i></label>
+          </div>
+          <span class="error-msg"></span>
+        </div>
+        <div class="form-group">
+          <span class="icon-input" style="top:21px;"><i class="fa-solid fa-boxes-stacked"></i></span>
+          <div style="margin-left:28px;padding-top:3px;">
+            <label>Were all amenities as described?</label><br>
+            <input type="radio" name="amenities" value="Yes" required> Yes
+            <input type="radio" name="amenities" value="No"> No
+            <input type="text" name="amenitiesComments" class="form-input" style="margin-top:9px;" placeholder="If no, please specify">
+          </div>
+          <span class="error-msg"></span>
+        </div>
+        <div class="action-row">
+          <button class="submit-btn" type="button" onclick="prevSection()"><i class="fa-solid fa-arrow-left"></i> Back</button>
+          <button class="submit-btn" type="button" onclick="nextSection()">Next <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+      <!-- Section 4: Service & Support -->
+      <div class="form-section" data-step="4">
+        <div class="section-title"><i class="fa-solid fa-user-headset"></i> Service & Support</div>
+        <div class="form-group">
+          <span class="icon-input" style="top:21px;"><i class="fa-solid fa-headphones"></i></span>
+          <div style="margin-left:28px;padding-top:3px;">
+            <label>Was the staff or host responsive?</label><br>
+            <input type="radio" name="staffResponse" value="Yes" required> Yes
+            <input type="radio" name="staffResponse" value="No"> No
+            <input type="radio" name="staffResponse" value="N/A"> N/A
+          </div>
+          <span class="error-msg"></span>
+        </div>
+        <div class="form-group">
+          <span class="icon-input" style="top:21px;"><i class="fa-solid fa-triangle-exclamation"></i></span>
+          <div style="margin-left:28px;padding-top:3px;">
+            <label>Did you face any issues?</label><br>
+            <input type="radio" name="issues" value="Yes" required> Yes
+            <input type="radio" name="issues" value="No"> No
+            <input type="text" name="issuesComments" class="form-input" style="margin-top:9px;" placeholder="If yes, please describe">
+          </div>
+          <span class="error-msg"></span>
+        </div>
+        <div class="action-row">
+          <button class="submit-btn" type="button" onclick="prevSection()"><i class="fa-solid fa-arrow-left"></i> Back</button>
+          <button class="submit-btn" type="button" onclick="nextSection()">Next <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+      <!-- Section 5: Overall Feedback -->
+      <div class="form-section" data-step="5">
+        <div class="section-title"><i class="fa-regular fa-heart"></i> Overall Feedback</div>
+        <div class="form-group">
+          <i class="fa-solid fa-thumbs-up icon-input"></i>
+          <div style="margin-left:30px;">
+            <label>How likely are you to recommend us?</label>
+            <div class="star-rating" data-name="recommendation">
+              <input type="radio" id="starRec5" name="recommendation" value="5" required>
+              <label for="starRec5"><i class="fa-solid fa-star"></i></label>
+              <input type="radio" id="starRec4" name="recommendation" value="4">
+              <label for="starRec4"><i class="fa-solid fa-star"></i></label>
+              <input type="radio" id="starRec3" name="recommendation" value="3">
+              <label for="starRec3"><i class="fa-solid fa-star"></i></label>
+              <input type="radio" id="starRec2" name="recommendation" value="2">
+              <label for="starRec2"><i class="fa-solid fa-star"></i></label>
+              <input type="radio" id="starRec1" name="recommendation" value="1">
+              <label for="starRec1"><i class="fa-solid fa-star"></i></label>
+            </div>
+          </div>
+          <span class="error-msg"></span>
+        </div>
+        <div class="form-group">
+          <i class="fa-solid fa-chart-line icon-input"></i>
+          <div class="star-rating" data-name="overallExperience">
+            <input type="radio" id="starOverall5" name="overallExperience" value="5" required>
+            <label for="starOverall5"><i class="fa-solid fa-star"></i></label>
+            <input type="radio" id="starOverall4" name="overallExperience" value="4">
+            <label for="starOverall4"><i class="fa-solid fa-star"></i></label>
+            <input type="radio" id="starOverall3" name="overallExperience" value="3">
+            <label for="starOverall3"><i class="fa-solid fa-star"></i></label>
+            <input type="radio" id="starOverall2" name="overallExperience" value="2">
+            <label for="starOverall2"><i class="fa-solid fa-star"></i></label>
+            <input type="radio" id="starOverall1" name="overallExperience" value="1">
+            <label for="starOverall1"><i class="fa-solid fa-star"></i></label>
+          </div>
+          <span class="error-msg"></span>
+        </div>
+        <div class="form-group">
+          <i class="fa-solid fa-lightbulb icon-input"></i>
+          <textarea class="form-input" name="bestPart" id="bestPart" placeholder=" "></textarea>
+          <label class="floating-label" for="bestPart">What did you like the most?</label>
+          <span class="error-msg"></span>
+        </div>
+        <div class="form-group">
+          <i class="fa-solid fa-wrench icon-input"></i>
+          <textarea class="form-input" name="improvements" id="improvements" placeholder=" "></textarea>
+          <label class="floating-label" for="improvements">What improvements would you suggest?</label>
+          <span class="error-msg"></span>
+        </div>
+        <div class="form-group">
+          <i class="fa-solid fa-comment-dots icon-input"></i>
+          <textarea class="form-input" name="otherComments" id="otherComments" placeholder=" "></textarea>
+          <label class="floating-label" for="otherComments">Any other comments or recommendations?</label>
+          <span class="error-msg"></span>
+        </div>
+        <div class="action-row">
+          <button class="submit-btn" type="button" onclick="prevSection()"><i class="fa-solid fa-arrow-left"></i> Back</button>
+          <button class="submit-btn" type="submit" id="finalSubmitBtn">
+            <span id="submitBtnText">Submit Feedback</span>
+            <span class="spinner" style="display:none;" id="spinner"></span>
+          </button>
+        </div>
+      </div>
+    </form>
+    <div class="confirmation" id="confirmationMsg" style="display:none;">
+      Thank you for your feedback!<br>Your responses have been recorded.
+    </div>
+  </div>
+  <script>
+    // Multi-step form navigation and progress bar
+    let currentStep = 1;
+    const totalSteps = 5;
+    const progressBar = document.getElementById('progressBar');
+    function showStep(step) {
+      document.querySelectorAll('.form-section').forEach((el, n) => {
+        el.classList.toggle('active', Number(el.getAttribute('data-step')) === step);
+      });
+      progressBar.style.width = ((step-1)/(totalSteps-1))*100 + "%";
+    }
+    function nextSection() {
+      if (validateSection(currentStep)) {
+        if (currentStep < totalSteps) {
+          currentStep++; showStep(currentStep);
+        }
+      }
+    }
+    function prevSection() {
+      if (currentStep > 1) {
+        currentStep--; showStep(currentStep);
+      }
+    }
+    showStep(currentStep);
+
+    // Floating label active on value
+    document.querySelectorAll('.form-input, textarea').forEach(input => {
+      input.addEventListener('input', function(){
+        input.classList.toggle('filled', !!input.value);
+      });
+    });
+
+    // Field highlight (if focused)
+    document.querySelectorAll('.form-input, .form-select, textarea').forEach(input => {
+      input.addEventListener('focus', function(){
+        input.style.background = '#f5faff';
+      });
+      input.addEventListener('blur', function(){
+        input.style.background = '#ebeef3';
+      });
+    });
+
+    // Client-side validation feedback
+    function validateSection(step) {
+      let valid = true;
+      const section = document.querySelector('.form-section[data-step="'+step+'"]');
+      section.querySelectorAll('[required]').forEach(input => {
+        let showError = false;
+        if (input.type === 'radio') {
+          const name = input.name;
+          const checked = section.querySelector('input[name="'+name+'"]:checked');
+          if (!checked) showError = true;
+        } else if (!input.value) {
+          showError = true;
+        }
+        if (showError) {
+          valid = false;
+          input.classList.add('error');
+          let errorMsg = input.parentElement.querySelector('.error-msg');
+          if (errorMsg) errorMsg.textContent = "Please fill out this field.";
+        } else {
+          input.classList.remove('error');
+          let errorMsg = input.parentElement.querySelector('.error-msg');
+          if (errorMsg) errorMsg.textContent = "";
+        }
+      });
+      return valid;
+    }
+    const images = [
+  'image0.jpg', 'image2.jpg', 'image8.jpg', 'image9.jpg',
+  'image10.jpg', 'image11.jpg', 'image12.jpg', 'image13.jpg'
+];
+let currentIndex = 0;
+const body = document.body;
+
+// Set the initial background
+body.style.backgroundImage = `url('${images[0]}')`;
+
+function changeBackground() {
+  currentIndex = (currentIndex + 1) % images.length;
+  body.style.backgroundImage = `url('${images[currentIndex]}')`;
+}
+
+// Change background every 6 seconds (6000 ms)
+setInterval(changeBackground, 6000);
+
+    // On form submit (final step)
+    document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (!validateSection(currentStep)) return;
+
+      const form = this;
+      const finalSubmitBtn = document.getElementById('finalSubmitBtn');
+      const spinner = document.getElementById('spinner');
+      finalSubmitBtn.disabled = true;
+      document.getElementById('submitBtnText').style.display = 'none';
+      spinner.style.display = 'inline-block';
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {'Accept':'application/json'}
+      })
+      .then(response => {
+        if (response.ok) {
+          form.style.display = 'none';
+          document.getElementById('confirmationMsg').style.display = 'block';
+        } else {
+          alert('Submission error. Please try again.');
+          finalSubmitBtn.disabled = false;
+          spinner.style.display = 'none';
+          document.getElementById('submitBtnText').style.display = 'inline';
+        }
+      })
+      .catch(err => {
+        alert('Could not connect. Please check your internet and try again.');
+        finalSubmitBtn.disabled = false;
+        spinner.style.display = 'none';
+        document.getElementById('submitBtnText').style.display = 'inline';
+      });
+    });
+
+    // Star rating accessibility
+    document.querySelectorAll('.star-rating').forEach(rating => {
+      rating.addEventListener('keydown', function(e){
+        // Arrow keys for better accessibility
+        const input = rating.querySelector(':checked');
+        if(['ArrowRight','ArrowLeft'].includes(e.key)) {
+          let nextInput;
+          if (e.key === 'ArrowRight') {
+            nextInput = input?.previousElementSibling?.previousElementSibling || rating.querySelector('input[type="radio"]:last-child');
+          } else {
+            nextInput = input?.nextElementSibling?.nextElementSibling || rating.querySelector('input[type="radio"]:first-child');
+          }
+          if (nextInput) { nextInput.checked = true; nextInput.dispatchEvent(new Event('input')); }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
