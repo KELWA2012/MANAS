@@ -31,7 +31,7 @@
   z-index: 1;
   max-width: 600px;
   margin: 40px auto;
-  background: rgba(255,255,255,0.95);
+  background: rgba(255,255,255,0.85);
   padding: 30px 24px;
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.15);
@@ -336,6 +336,10 @@
     ::selection {
       background: #e8f2ff;
     }
+    .label1
+    {
+      padding-left:52px; ;
+    }
     
   </style>
 </head>
@@ -370,12 +374,12 @@
         </div>
         <div class="form-group">
   <i class="fa fa-calendar icon-input"></i>
-  <input class="form-input" type="date" name="dateFrom"  placeholder=" ">
+  <input class="form-input" type="date" name="From"  placeholder=" ">
   <label class="floating-label">From (Check-in Date) *</label>
 </div>
 <div class="form-group">
   <i class="fa fa-calendar icon-input"></i>
-  <input class="form-input" type="date" name="dateTo"  placeholder=" ">
+  <input class="form-input" type="date" name="To"  placeholder=" ">
   <label class="floating-label">To (Check-out Date) *</label>
 </div>
 
@@ -396,7 +400,7 @@
         <div class="form-group">
           <i class="fa-solid fa-check-circle icon-input"></i>
           <div class="star-rating" data-name="bookingProcess">
-            <input type="radio" id="starBooking5" name="bookingProcess" value="5" >
+            <input type="radio" id="starBooking5" name="bookingProcess" value="5" required>
             <label for="starBooking5"><i class="fa-solid fa-star"></i></label>
             <input type="radio" id="starBooking4" name="bookingProcess" value="4">
             <label for="starBooking4"><i class="fa-solid fa-star"></i></label>
@@ -413,7 +417,7 @@
           <span class="icon-input" style="top:21px;"><i class="fa-solid fa-comments"></i></span>
           <div style="margin-left:48px;padding-top:3px;">
             <label>  Was communication prior to arrival helpful? *</label><br>
-            <input type="radio" name="preComm" value="Yes" > Yes
+            <input type="radio" name="preComm" value="Yes" required> Yes
             <input type="radio" name="preComm" value="No"> No
           </div>
           <span class="error-msg"></span>
@@ -429,7 +433,7 @@
         <div class="form-group">
           <i class="fa-solid fa-broom icon-input"></i>
           <div class="star-rating" data-name="cleanliness">
-            <input type="radio" id="starClean5" name="cleanliness" value="5" >
+            <input type="radio" id="starClean5" name="cleanliness" value="5" required>
             <label for="starClean5"><i class="fa-solid fa-star"></i></label>
             <input type="radio" id="starClean4" name="cleanliness" value="4">
             <label for="starClean4"><i class="fa-solid fa-star"></i></label>
@@ -445,7 +449,7 @@
         <div class="form-group">
           <i class="fa-solid fa-bed icon-input"></i>
           <div class="star-rating" data-name="comfort">
-            <input type="radio" id="starComfort5" name="comfort" value="5" >
+            <input type="radio" id="starComfort5" name="comfort" value="5" required>
             <label for="starComfort5"><i class="fa-solid fa-star"></i></label>
             <input type="radio" id="starComfort4" name="comfort" value="4">
             <label for="starComfort4"><i class="fa-solid fa-star"></i></label>
@@ -462,7 +466,7 @@
           <span class="icon-input" style="top:21px;"><i class="fa-solid fa-boxes-stacked"></i></span>
           <div style="margin-left:48px;padding-top:3px;">
             <label>Were all amenities as described?</label><br>
-            <input type="radio" name="amenities" value="Yes" > Yes
+            <input type="radio" name="amenities" value="Yes" required> Yes
             <input type="radio" name="amenities" value="No"> No
             <input type="text" name="amenitiesComments" class="form-input" style="margin-top:9px;width:385px;" placeholder="If no, please specify">
           </div>
@@ -480,7 +484,7 @@
           <span class="icon-input" style="top:21px;"><i class="fa-solid fa-headphones"></i></span>
           <div style="margin-left:48px;padding-top:3px;">
             <label>Was the staff or host responsive?</label><br>
-            <input type="radio" name="staffResponse" value="Yes" > Yes
+            <input type="radio" name="staffResponse" value="Yes" required> Yes
             <input type="radio" name="staffResponse" value="No"> No
             <input type="radio" name="staffResponse" value="N/A"> N/A
           </div>
@@ -490,7 +494,7 @@
           <span class="icon-input" style="top:21px;"><i class="fa-solid fa-triangle-exclamation"></i></span>
           <div style="margin-left:48px;padding-top:3px;">
             <label>Did you face any issues?</label><br>
-            <input type="radio" name="issues" value="Yes" > Yes
+            <input type="radio" name="issues" value="Yes" required> Yes
             <input type="radio" name="issues" value="No"> No
             <input type="text" name="issuesComments" class="form-input" style="margin-top:9px;width:385px;" placeholder="If yes, please describe">
           </div>
@@ -504,11 +508,11 @@
       <!-- Section 5: Overall Feedback -->
       <div class="form-section" data-step="5">
         <div class="section-title"><i class="fa-regular fa-heart"></i> Overall Feedback</div>
-        <div class="form-group">
+        <div class="form-group" >
           <i class="fa-solid fa-thumbs-up icon-input"></i>
-          <div style="margin-left:30px;">
-            <label>How likely are you to recommend us?</label>
-            <div class="star-rating" style="margin-left: -11700px;" data-name="recommendation" >
+          <div style="margin-left: -2px;">
+            <label class="label1">How likely are you to recommend us?</label>
+            <div class="star-rating"  style="margin-right: 1000px;"  data-name="recommendation" >
               <input type="radio" id="starRec5" name="recommendation" value="5" required>
               <label for="starRec5"><i class="fa-solid fa-star"></i></label>
               <input type="radio" id="starRec4" name="recommendation" value="4">
@@ -595,6 +599,7 @@
     }
     showStep(currentStep);
 
+    
     // Floating label active on value
     document.querySelectorAll('.form-input, textarea').forEach(input => {
       input.addEventListener('input', function(){
@@ -652,6 +657,23 @@ function changeBackground() {
   currentIndex = (currentIndex + 1) % images.length;
   body.style.backgroundImage = `url('${images[currentIndex]}')`;
 }
+document.querySelector('input[name="To"]').addEventListener('change', function() {
+  const from = document.querySelector('input[name="From"]').value;
+  const to = this.value;
+  if (from && to && to < from) {
+    alert('To date cannot be before From date.'); // alert is not shown
+    this.value = '';
+  }
+});
+document.querySelector('input[name="From"]').addEventListener('change', function() {
+  const from = document.querySelector('input[name="To"]').value;
+  const to = this.value;
+  if (to&& to && to >from) 
+  {
+    alert('From date cannot be after To date.'); // alert is not shown
+    this.value = '';
+  }
+});
 
 // Change background every 6 seconds (6000 ms)
 setInterval(changeBackground, 6000);
