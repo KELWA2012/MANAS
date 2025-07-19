@@ -10,32 +10,32 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
   <style>
     body {
-  margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  color: #333;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  transition: background-image 1s ease-in-out;
-  overflow-y: auto !important;
-}
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      color: #333;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transition: background-image 1s ease-in-out;
+      overflow-y: auto !important;
+    }
     .overlay {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.45);
-  z-index: 0;
-}
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.45);
+      z-index: 0;
+    }
     .container {
-  position: relative;
-  z-index: 1;
-  max-width: 600px;
-  margin: 40px auto;
-  background: rgba(255,255,255,0.85);
-  padding: 30px 24px;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-}
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+      margin: 40px auto;
+      background: rgba(255,255,255,0.85);
+      padding: 30px 24px;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
     @media (max-width: 900px) {
       .container {
         max-width: 95%;
@@ -61,20 +61,19 @@
         padding-left: 32px;
       }
       .icon-input {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 38px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #6e7d97;
-  font-size: 1.2em;
-  z-index: 3;
-  pointer-events: none;
-}
-
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 38px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #6e7d97;
+        font-size: 1.2em;
+        z-index: 3;
+        pointer-events: none;
+      }
       .star-rating label {
         font-size: 1.1em;
       }
@@ -108,10 +107,9 @@
         height: 8px;
       }
       .form-input, .form-select, textarea {
-  padding-left: 40px;
-  padding-bottom: 40px; /* Keep in sync with .icon-input width */
-}
-
+        padding-left: 40px;
+        padding-bottom: 40px; /* Keep in sync with .icon-input width */
+      }
     }
     .form-section {
       display: none;
@@ -162,9 +160,11 @@
       font-size: 1.2em;
       z-index: 3;
     }
+    /* MAIN RESPONSIVE FIX */
     .form-input, .form-select, textarea {
       font-family: inherit;
-      width: 745px;
+      width: 100%;
+      box-sizing: border-box;
       padding: 11px 13px 11px 38px;
       border: 1.5px solid #b4bac7;
       border-radius: 6px;
@@ -178,8 +178,7 @@
     .form-input:focus, .form-select:focus, textarea:focus {
       border-color: #4477bb;
       background: #f8faff;
-      box-shadow: 0 2px 8px rgba(68,119,187,0.06),
-                  0 0 0 2px #d1e5ff;
+      box-shadow: 0 2px 8px rgba(68,119,187,0.06), 0 0 0 2px #d1e5ff;
     }
     .form-input.error, .form-select.error, textarea.error {
       border-color: #ff5d5d;
@@ -247,7 +246,6 @@
       cursor: pointer;
       margin: 0 3px;
       transition: color 0.15s;
-      
     }
     .star-rating input[type="radio"]:checked ~ label,
     .star-rating label:hover,
@@ -338,9 +336,8 @@
     }
     .label1
     {
-      padding-left:52px; ;
+      padding-left:52px;;
     }
-    
   </style>
 </head>
 <body>
@@ -356,36 +353,35 @@
         <div class="section-title"><i class="fa-solid fa-user"></i> Guest Info</div>
         <div class="form-group">
           <i class="fa-solid fa-user icon-input"></i>
-          <input class="form-input" name="name" id="name" type="text"  placeholder=" " autocomplete="off"required>
+          <input class="form-input" name="name" id="name" type="text"  placeholder=" " autocomplete="off">
           <label class="floating-label" for="name">Name *</label>
           <span class="error-msg"></span>
         </div>
         <div class="form-group">
           <i class="fa-solid fa-envelope icon-input"></i>
-          <input class="form-input" name="email" id="email" type="email"  placeholder=" "required>
+          <input class="form-input" name="email" id="email" type="email"  placeholder=" ">
           <label class="floating-label" for="email">Email *</label>
           <span class="error-msg"></span>
         </div>
         <div class="form-group">
           <i class="fa-solid fa-phone icon-input"></i>
-          <input class="form-input" name="phone" id="phone" type="text" placeholder=" "required>
+          <input class="form-input" name="phone" id="phone" type="text" placeholder=" ">
           <label class="floating-label" for="phone">Phone Number</label>
           <span class="error-msg"></span>
         </div>
         <div class="form-group">
-  <i class="fa fa-calendar icon-input"></i>
-  <input class="form-input" type="date" name="From"  placeholder=" "required>
-  <label class="floating-label">From (Check-in Date) *</label>
-</div>
-<div class="form-group">
-  <i class="fa fa-calendar icon-input"></i>
-  <input class="form-input" type="date" name="To"  placeholder=" "required>
-  <label class="floating-label">To (Check-out Date) *</label>
-</div>
-
+          <i class="fa fa-calendar icon-input"></i>
+          <input class="form-input" type="date" name="From"  placeholder=" ">
+          <label class="floating-label">From (Check-in Date) *</label>
+        </div>
+        <div class="form-group">
+          <i class="fa fa-calendar icon-input"></i>
+          <input class="form-input" type="date" name="To"  placeholder=" ">
+          <label class="floating-label">To (Check-out Date) *</label>
+        </div>
         <div class="form-group">
           <i class="fa-solid fa-users icon-input"></i>
-          <input class="form-input" name="numGuests" id="numGuests" type="number" min="1" max="30" placeholder=" "required>
+          <input class="form-input" name="numGuests" id="numGuests" type="number" min="1" max="30" placeholder=" ">
           <label class="floating-label" for="numGuests">Number of Guests</label>
           <span class="error-msg"></span>
         </div>
@@ -400,7 +396,7 @@
         <div class="form-group">
           <i class="fa-solid fa-check-circle icon-input"></i>
           <div class="star-rating" data-name="bookingProcess">
-            <input type="radio" id="starBooking5" name="bookingProcess" value="5" required>
+            <input type="radio" id="starBooking5" name="bookingProcess" value="5" >
             <label for="starBooking5"><i class="fa-solid fa-star"></i></label>
             <input type="radio" id="starBooking4" name="bookingProcess" value="4">
             <label for="starBooking4"><i class="fa-solid fa-star"></i></label>
@@ -433,7 +429,7 @@
         <div class="form-group">
           <i class="fa-solid fa-broom icon-input"></i>
           <div class="star-rating" data-name="cleanliness">
-            <input type="radio" id="starClean5" name="cleanliness" value="5" required>
+            <input type="radio" id="starClean5" name="cleanliness" value="5" >
             <label for="starClean5"><i class="fa-solid fa-star"></i></label>
             <input type="radio" id="starClean4" name="cleanliness" value="4">
             <label for="starClean4"><i class="fa-solid fa-star"></i></label>
@@ -449,7 +445,7 @@
         <div class="form-group">
           <i class="fa-solid fa-bed icon-input"></i>
           <div class="star-rating" data-name="comfort">
-            <input type="radio" id="starComfort5" name="comfort" value="5" required>
+            <input type="radio" id="starComfort5" name="comfort" value="5" >
             <label for="starComfort5"><i class="fa-solid fa-star"></i></label>
             <input type="radio" id="starComfort4" name="comfort" value="4">
             <label for="starComfort4"><i class="fa-solid fa-star"></i></label>
@@ -468,7 +464,7 @@
             <label>Were all amenities as described?</label><br>
             <input type="radio" name="amenities" value="Yes" required> Yes
             <input type="radio" name="amenities" value="No"> No
-            <input type="text" name="amenitiesComments" class="form-input" style="margin-top:9px;width:385px;" placeholder="If no, please specify">
+            <input type="text" name="amenitiesComments" class="form-input" style="margin-top:9px;" placeholder="If no, please specify">
           </div>
           <span class="error-msg"></span>
         </div>
@@ -484,7 +480,7 @@
           <span class="icon-input" style="top:21px;"><i class="fa-solid fa-headphones"></i></span>
           <div style="margin-left:48px;padding-top:3px;">
             <label>Was the staff or host responsive?</label><br>
-            <input type="radio" name="staffResponse" value="Yes" required> Yes
+            <input type="radio" name="staffResponse" value="Yes" > Yes
             <input type="radio" name="staffResponse" value="No"> No
             <input type="radio" name="staffResponse" value="N/A"> N/A
           </div>
@@ -494,9 +490,9 @@
           <span class="icon-input" style="top:21px;"><i class="fa-solid fa-triangle-exclamation"></i></span>
           <div style="margin-left:48px;padding-top:3px;">
             <label>Did you face any issues?</label><br>
-            <input type="radio" name="issues" value="Yes" required> Yes
+            <input type="radio" name="issues" value="Yes" > Yes
             <input type="radio" name="issues" value="No"> No
-            <input type="text" name="issuesComments" class="form-input" style="margin-top:9px;width:385px;" placeholder="If yes, please describe">
+            <input type="text" name="issuesComments" class="form-input" style="margin-top:9px;" placeholder="If yes, please describe">
           </div>
           <span class="error-msg"></span>
         </div>
@@ -545,7 +541,7 @@
         </div>
         <div class="form-group">
           <i class="fa-solid fa-lightbulb icon-input"></i>
-          <textarea class="form-input" style="width:585px;" name="bestPart" id="bestPart" placeholder=" "></textarea>
+          <textarea class="form-input" name="bestPart" id="bestPart" placeholder=" "></textarea>
           <label class="floating-label" for="bestPart">What did you like the most?</label>
           <span class="error-msg"></span>
         </div>
@@ -599,7 +595,6 @@
     }
     showStep(currentStep);
 
-    
     // Floating label active on value
     document.querySelectorAll('.form-input, textarea').forEach(input => {
       input.addEventListener('input', function(){
@@ -644,45 +639,35 @@
       return valid;
     }
     const images = [
-  'image0.jpg', 'image2.jpg', 'image8.jpg', 'image9.jpg',
-  'image10.jpg', 'image11.jpg', 'image12.jpg', 'image13.jpg'
-];
-let currentIndex = 0;
-const body = document.body;
+      'image0.jpg', 'image2.jpg', 'image8.jpg', 'image9.jpg',
+      'image10.jpg', 'image11.jpg', 'image12.jpg', 'image13.jpg'
+    ];
+    let currentIndex = 0;
+    const body = document.body;
 
-// Set the initial background
-body.style.backgroundImage = `url('${images[0]}')`;
+    // Set the initial background
+    body.style.backgroundImage = `url('${images[0]}')`;
 
-function changeBackground() {
-  currentIndex = (currentIndex + 1) % images.length;
-  body.style.backgroundImage = `url('${images[currentIndex]}')`;
-}
-document.querySelector('input[name="To"]').addEventListener('change', function() {
-  const from = document.querySelector('input[name="From"]').value;
-  const to = this.value;
-  if (from && to && to < from) {
-    alert('To date cannot be before From date.'); // alert is not shown
-    this.value = '';
-  }
-});
-document.querySelector('input[name="From"]').addEventListener('change', function() {
-  const from = document.querySelector('input[name="To"]').value;
-  const to = this.value;
-  if (to&& to && to >from) 
-  {
-    alert('From date cannot be after To date.'); // alert is not shown
-    this.value = '';
-  }
-});
+    function changeBackground() {
+      currentIndex = (currentIndex + 1) % images.length;
+      body.style.backgroundImage = `url('${images[currentIndex]}')`;
+    }
+    document.querySelector('input[name="To"]').addEventListener('change', function() {
+      const from = document.querySelector('input[name="From"]').value;
+      const to = this.value;
+      if (from && to && to < from) {
+        alert('To date cannot be before From date.');
+        this.value = '';
+      }
+    });
 
-// Change background every 6 seconds (6000 ms)
-setInterval(changeBackground, 6000);
+    // Change background every 6 seconds (6000 ms)
+    setInterval(changeBackground, 6000);
 
     // On form submit (final step)
     document.getElementById('feedbackForm').addEventListener('submit', function(e) {
       e.preventDefault();
       if (!validateSection(currentStep)) return;
-
       const form = this;
       const finalSubmitBtn = document.getElementById('finalSubmitBtn');
       const spinner = document.getElementById('spinner');
