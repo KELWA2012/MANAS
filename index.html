@@ -358,42 +358,41 @@
     <div class="progress-bar-container">
       <div class="progress-bar" id="progressBar"></div>
     </div>
-    <form id="feedbackForm" action="https://formspree.io/f/myzpkjkb"
-  method="POST" novalidate autocomplete="off">
+    <form id="feedbackForm" action="https://formspree.io/f/myzpkjkb" method="POST" novalidate autocomplete="off" netlify>
       <!-- Section 1: Guest Info -->
       <div class="form-section active" data-step="1">
         <div class="section-title"><i class="fa-solid fa-user"></i> Guest Info</div>
         <div class="form-group">
           <i class="fa-solid fa-user icon-input"></i>
-          <input class="form-input" name="name" id="name" type="text"  placeholder=" " autocomplete="off" required>
+          <input class="form-input" name="name" id="name" type="text"  placeholder=" " autocomplete="off" >
           <label class="floating-label" for="name">Name *</label>
           <span class="error-msg"></span>
         </div>
         <div class="form-group">
           <i class="fa-solid fa-envelope icon-input"></i>
-          <input class="form-input" name="email" id="email" type="email"  placeholder=" "required>
+          <input class="form-input" name="email" id="email" type="email"  placeholder=" ">
           <label class="floating-label" for="email">Email *</label>
           <span class="error-msg"></span>
         </div>
         <div class="form-group">
           <i class="fa-solid fa-phone icon-input"></i>
-          <input class="form-input" name="phone" id="phone" type="text" placeholder=" "required>
+          <input class="form-input" name="phone" id="phone" type="text" placeholder=" ">
           <label class="floating-label" for="phone">Phone Number</label>
           <span class="error-msg"></span>
         </div>
         <div class="form-group">
           <i class="fa fa-calendar icon-input"></i>
-          <input class="form-input" type="date" name="From"  placeholder=" "required>
+          <input class="form-input" type="date" name="From"  placeholder=" ">
           <label class="floating-label">From (Check-in Date) *</label>
         </div>
         <div class="form-group">
           <i class="fa fa-calendar icon-input"></i>
-          <input class="form-input" type="date" name="To"  placeholder=" "required>
+          <input class="form-input" type="date" name="To"  placeholder=" ">
           <label class="floating-label">To (Check-out Date) *</label>
         </div>
         <div class="form-group">
           <i class="fa-solid fa-users icon-input"></i>
-          <input class="form-input" name="numGuests" id="numGuests" type="number" min="1" max="30" placeholder=" "required>
+          <input class="form-input" name="numGuests" id="numGuests" type="number" min="1" max="30" placeholder=" ">
           <label class="floating-label" for="numGuests">Number of Guests</label>
           <span class="error-msg"></span>
         </div>
@@ -408,7 +407,7 @@
         <div class="form-group">
           <i class="fa-solid fa-check-circle icon-input"></i>
           <div class="star-rating" data-name="bookingProcess">
-            <input type="radio" id="starBooking5" name="bookingProcess" value="5" required>
+            <input type="radio" id="starBooking5" name="bookingProcess" value="5" >
             <label for="starBooking5"><i class="fa-solid fa-star"></i></label>
             <input type="radio" id="starBooking4" name="bookingProcess" value="4">
             <label for="starBooking4"><i class="fa-solid fa-star"></i></label>
@@ -425,7 +424,7 @@
           <span class="icon-input" style="top:21px;"><i class="fa-solid fa-comments"></i></span>
           <div style="margin-left:48px;padding-top:3px;">
             <label>  Was communication prior to arrival helpful? *</label><br>
-            <input type="radio" name="preComm" value="Yes" required> Yes
+            <input type="radio" name="preComm" value="Yes" > Yes
             <input type="radio" name="preComm" value="No"> No
           </div>
           <span class="error-msg"></span>
@@ -441,7 +440,7 @@
         <div class="form-group">
           <i class="fa-solid fa-broom icon-input"></i>
           <div class="star-rating" data-name="cleanliness">
-            <input type="radio" id="starClean5" name="cleanliness" value="5" required>
+            <input type="radio" id="starClean5" name="cleanliness" value="5" >
             <label for="starClean5"><i class="fa-solid fa-star"></i></label>
             <input type="radio" id="starClean4" name="cleanliness" value="4">
             <label for="starClean4"><i class="fa-solid fa-star"></i></label>
@@ -457,7 +456,7 @@
         <div class="form-group">
           <i class="fa-solid fa-bed icon-input"></i>
           <div class="star-rating" data-name="comfort">
-            <input type="radio" id="starComfort5" name="comfort" value="5" required>
+            <input type="radio" id="starComfort5" name="comfort" value="5" >
             <label for="starComfort5"><i class="fa-solid fa-star"></i></label>
             <input type="radio" id="starComfort4" name="comfort" value="4">
             <label for="starComfort4"><i class="fa-solid fa-star"></i></label>
@@ -474,7 +473,7 @@
           <span class="icon-input" style="top:21px;"><i class="fa-solid fa-boxes-stacked"></i></span>
           <div style="margin-left:48px;padding-top:3px;">
             <label>Were all amenities as described?</label><br>
-            <input type="radio" name="amenities" value="Yes" required> Yes
+            <input type="radio" name="amenities" value="Yes" > Yes
             <input type="radio" name="amenities" value="No"> No
             <input type="text" name="amenitiesComments" class="form-input" style="margin-top:9px;" placeholder="If no, please specify">
           </div>
@@ -492,7 +491,7 @@
           <span class="icon-input" style="top:21px;"><i class="fa-solid fa-headphones"></i></span>
           <div style="margin-left:48px;padding-top:3px;">
             <label>Was the staff or host responsive?</label><br>
-            <input type="radio" name="staffResponse" value="Yes" required> Yes
+            <input type="radio" name="staffResponse" value="Yes" > Yes
             <input type="radio" name="staffResponse" value="No"> No
             <input type="radio" name="staffResponse" value="N/A"> N/A
           </div>
@@ -502,7 +501,7 @@
           <span class="icon-input" style="top:21px;"><i class="fa-solid fa-triangle-exclamation"></i></span>
           <div style="margin-left:48px;padding-top:3px;">
             <label>Did you face any issues?</label><br>
-            <input type="radio" name="issues" value="Yes" required> Yes
+            <input type="radio" name="issues" value="Yes" > Yes
             <input type="radio" name="issues" value="No"> No
             <input type="text" name="issuesComments" class="form-input" style="margin-top:9px;" placeholder="If yes, please describe">
           </div>
@@ -521,7 +520,7 @@
           <div style="margin-left: -2px;">
             <label class="label1">How likely are you to recommend us?</label>
             <div class="star-rating"  style="margin-right: 1000px;"  data-name="recommendation" >
-              <input type="radio" id="starRec5" name="recommendation" value="5" required>
+              <input type="radio" id="starRec5" name="recommendation" value="5" >
               <label for="starRec5"><i class="fa-solid fa-star"></i></label>
               <input type="radio" id="starRec4" name="recommendation" value="4">
               <label for="starRec4"><i class="fa-solid fa-star"></i></label>
@@ -538,7 +537,7 @@
         <div class="form-group">
           <i class="fa-solid fa-chart-line icon-input"></i>
           <div class="star-rating" data-name="overallExperience">
-            <input type="radio" id="starOverall5" name="overallExperience" value="5" required>
+            <input type="radio" id="starOverall5" name="overallExperience" value="5" >
             <label for="starOverall5"><i class="fa-solid fa-star"></i></label>
             <input type="radio" id="starOverall4" name="overallExperience" value="4">
             <label for="starOverall4"><i class="fa-solid fa-star"></i></label>
@@ -553,20 +552,19 @@
         </div>
         <div class="form-group">
           <i class="fa-solid fa-lightbulb icon-input"></i>
-          <textarea class="form-input" name="bestPart" id="bestPart" placeholder=" "></textarea>
-          <label  class="flb"for="bestPart">What did you like the most?</label>
+          <textarea class="form-input" name="bestPart" id="bestPart" placeholder="What did you like the most?"></textarea>
           <span class="error-msg"></span>
         </div>
         <div class="form-group">
           <i class="fa-solid fa-wrench icon-input"></i>
-          <textarea class="form-input" name="improvements" id="improvements" placeholder=" "></textarea>
-          <label  class="flb"for="improvements">What improvements would you suggest?</label>
+          <textarea class="form-input" name="improvements" id="improvements" placeholder="What improvements would you suggest?"></textarea>
+          
           <span class="error-msg"></span>
         </div>
         <div class="form-group">
           <i class="fa-solid fa-comment-dots icon-input"></i>
-          <textarea class="form-input" name="otherComments" id="otherComments" placeholder=" "></textarea>
-          <label  class="flb"for="otherComments">Any other comments or recommendations?</label>
+          <textarea class="form-input" name="otherComments" id="otherComments" placeholder="Any other comments or recommendations?"></textarea>
+          
           <span class="error-msg"></span>
         </div>
         <div class="action-row">
