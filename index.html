@@ -195,6 +195,17 @@
       transition: all 0.2s;
       padding: 0 4px;
     }
+    label.flb{
+      position: absolute;
+      left: 38px;
+      top: 13px;
+      font-size: 1em;
+      color: #9ba6bf;
+      pointer-events: none;
+      background: transparent;
+      transition: all 0.2s;
+      padding: 0 4px;
+    }
     .form-input:focus + .floating-label,
     .form-input:not(:placeholder-shown) + .floating-label,
     textarea:focus + .floating-label,
@@ -353,35 +364,35 @@
         <div class="section-title"><i class="fa-solid fa-user"></i> Guest Info</div>
         <div class="form-group">
           <i class="fa-solid fa-user icon-input"></i>
-          <input class="form-input" name="name" id="name" type="text"  placeholder=" " autocomplete="off">
+          <input class="form-input" name="name" id="name" type="text"  placeholder=" " autocomplete="off" required>
           <label class="floating-label" for="name">Name *</label>
           <span class="error-msg"></span>
         </div>
         <div class="form-group">
           <i class="fa-solid fa-envelope icon-input"></i>
-          <input class="form-input" name="email" id="email" type="email"  placeholder=" ">
+          <input class="form-input" name="email" id="email" type="email"  placeholder=" "required>
           <label class="floating-label" for="email">Email *</label>
           <span class="error-msg"></span>
         </div>
         <div class="form-group">
           <i class="fa-solid fa-phone icon-input"></i>
-          <input class="form-input" name="phone" id="phone" type="text" placeholder=" ">
+          <input class="form-input" name="phone" id="phone" type="text" placeholder=" "required>
           <label class="floating-label" for="phone">Phone Number</label>
           <span class="error-msg"></span>
         </div>
         <div class="form-group">
           <i class="fa fa-calendar icon-input"></i>
-          <input class="form-input" type="date" name="From"  placeholder=" ">
+          <input class="form-input" type="date" name="From"  placeholder=" "required>
           <label class="floating-label">From (Check-in Date) *</label>
         </div>
         <div class="form-group">
           <i class="fa fa-calendar icon-input"></i>
-          <input class="form-input" type="date" name="To"  placeholder=" ">
+          <input class="form-input" type="date" name="To"  placeholder=" "required>
           <label class="floating-label">To (Check-out Date) *</label>
         </div>
         <div class="form-group">
           <i class="fa-solid fa-users icon-input"></i>
-          <input class="form-input" name="numGuests" id="numGuests" type="number" min="1" max="30" placeholder=" ">
+          <input class="form-input" name="numGuests" id="numGuests" type="number" min="1" max="30" placeholder=" "required>
           <label class="floating-label" for="numGuests">Number of Guests</label>
           <span class="error-msg"></span>
         </div>
@@ -396,7 +407,7 @@
         <div class="form-group">
           <i class="fa-solid fa-check-circle icon-input"></i>
           <div class="star-rating" data-name="bookingProcess">
-            <input type="radio" id="starBooking5" name="bookingProcess" value="5" >
+            <input type="radio" id="starBooking5" name="bookingProcess" value="5" required>
             <label for="starBooking5"><i class="fa-solid fa-star"></i></label>
             <input type="radio" id="starBooking4" name="bookingProcess" value="4">
             <label for="starBooking4"><i class="fa-solid fa-star"></i></label>
@@ -429,7 +440,7 @@
         <div class="form-group">
           <i class="fa-solid fa-broom icon-input"></i>
           <div class="star-rating" data-name="cleanliness">
-            <input type="radio" id="starClean5" name="cleanliness" value="5" >
+            <input type="radio" id="starClean5" name="cleanliness" value="5" required>
             <label for="starClean5"><i class="fa-solid fa-star"></i></label>
             <input type="radio" id="starClean4" name="cleanliness" value="4">
             <label for="starClean4"><i class="fa-solid fa-star"></i></label>
@@ -445,7 +456,7 @@
         <div class="form-group">
           <i class="fa-solid fa-bed icon-input"></i>
           <div class="star-rating" data-name="comfort">
-            <input type="radio" id="starComfort5" name="comfort" value="5" >
+            <input type="radio" id="starComfort5" name="comfort" value="5" required>
             <label for="starComfort5"><i class="fa-solid fa-star"></i></label>
             <input type="radio" id="starComfort4" name="comfort" value="4">
             <label for="starComfort4"><i class="fa-solid fa-star"></i></label>
@@ -480,7 +491,7 @@
           <span class="icon-input" style="top:21px;"><i class="fa-solid fa-headphones"></i></span>
           <div style="margin-left:48px;padding-top:3px;">
             <label>Was the staff or host responsive?</label><br>
-            <input type="radio" name="staffResponse" value="Yes" > Yes
+            <input type="radio" name="staffResponse" value="Yes" required> Yes
             <input type="radio" name="staffResponse" value="No"> No
             <input type="radio" name="staffResponse" value="N/A"> N/A
           </div>
@@ -490,7 +501,7 @@
           <span class="icon-input" style="top:21px;"><i class="fa-solid fa-triangle-exclamation"></i></span>
           <div style="margin-left:48px;padding-top:3px;">
             <label>Did you face any issues?</label><br>
-            <input type="radio" name="issues" value="Yes" > Yes
+            <input type="radio" name="issues" value="Yes" required> Yes
             <input type="radio" name="issues" value="No"> No
             <input type="text" name="issuesComments" class="form-input" style="margin-top:9px;" placeholder="If yes, please describe">
           </div>
@@ -542,19 +553,19 @@
         <div class="form-group">
           <i class="fa-solid fa-lightbulb icon-input"></i>
           <textarea class="form-input" name="bestPart" id="bestPart" placeholder=" "></textarea>
-          <label class="floating-label" for="bestPart">What did you like the most?</label>
+          <label  class="flb"for="bestPart">What did you like the most?</label>
           <span class="error-msg"></span>
         </div>
         <div class="form-group">
           <i class="fa-solid fa-wrench icon-input"></i>
           <textarea class="form-input" name="improvements" id="improvements" placeholder=" "></textarea>
-          <label class="floating-label" for="improvements">What improvements would you suggest?</label>
+          <label  class="flb"for="improvements">What improvements would you suggest?</label>
           <span class="error-msg"></span>
         </div>
         <div class="form-group">
           <i class="fa-solid fa-comment-dots icon-input"></i>
           <textarea class="form-input" name="otherComments" id="otherComments" placeholder=" "></textarea>
-          <label class="floating-label" for="otherComments">Any other comments or recommendations?</label>
+          <label  class="flb"for="otherComments">Any other comments or recommendations?</label>
           <span class="error-msg"></span>
         </div>
         <div class="action-row">
@@ -638,20 +649,24 @@
       });
       return valid;
     }
-    const images = [
-      'image0.jpg', 'image2.jpg', 'image8.jpg', 'image9.jpg',
-      'image10.jpg', 'image11.jpg', 'image12.jpg', 'image13.jpg'
-    ];
-    let currentIndex = 0;
-    const body = document.body;
+    // const images = [
+    //   'image0.jpg', 'image2.jpg', 'image8.jpg', 'image9.jpg',
+    //   'image10.jpg', 'image11.jpg', 'image12.jpg', 'image13.jpg'
+    // ];
+    // let currentIndex = 0;
+    // const body = document.body;
 
-    // Set the initial background
-    body.style.backgroundImage = `url('${images[0]}')`;
+    // // Set the initial background
+    // body.style.backgroundImage = `url('${images[0]}')`;
 
-    function changeBackground() {
-      currentIndex = (currentIndex + 1) % images.length;
-      body.style.backgroundImage = `url('${images[currentIndex]}')`;
-    }
+    // function changeBackground() {
+    //   currentIndex = (currentIndex + 1) % images.length;
+    //   body.style.backgroundImage = `url('${images[currentIndex]}')`;
+    // }
+    // // Change background every 6 seconds (6000 ms)
+    // setInterval(changeBackground, 6000);
+
+
     document.querySelector('input[name="To"]').addEventListener('change', function() {
       const from = document.querySelector('input[name="From"]').value;
       const to = this.value;
@@ -660,9 +675,6 @@
         this.value = '';
       }
     });
-
-    // Change background every 6 seconds (6000 ms)
-    setInterval(changeBackground, 6000);
 
     // On form submit (final step)
     document.getElementById('feedbackForm').addEventListener('submit', function(e) {
